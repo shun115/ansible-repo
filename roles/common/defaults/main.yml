@@ -5,3 +5,4 @@ mail_server: localhost
 project_name: project_name
 alert_for:
   - test@example.com
+hdd_device: /dev/null

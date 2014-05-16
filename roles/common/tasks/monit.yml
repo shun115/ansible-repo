@@ -3,6 +3,10 @@
   template: src=monit.conf.j2 dest=/etc/monit.conf owner=root group=root mode=0700
   tags: monit
 
+- name: add monit config for HDD
+  template: src=disk.conf.j2 dest=/etc/monit.d/disk.conf owner=root group=root mode=0744
+  tags: monit
+
 - name: chkconfig monit
   shell: /sbin/chkconfig monit on
   tags: monit
