@@ -1,0 +1,12 @@
+---
+- name: configure monit
+  template: src=monit.conf.j2 dest=/etc/monit.conf owner=root group=root mode=0700
+  tags: monit
+
+- name: chkconfig monit
+  shell: /sbin/chkconfig monit on
+  tags: monit
+
+- name: stop monit
+  service: name=monit state=stopped
+  tags: monit

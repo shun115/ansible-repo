@@ -1,0 +1,12 @@
+---
+- name: configure munin
+  shell: /usr/sbin/munin-node-configure --shell|sh
+  tags: munin
+
+- name: chkconfig munin
+  shell: /sbin/chkconfig munin-node on
+  tags: monit
+
+- name: stop munin
+  service: name=munin-node state=started
+  tags: monit

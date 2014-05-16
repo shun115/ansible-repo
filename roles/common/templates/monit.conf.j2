@@ -1,0 +1,12 @@
+set daemon 60
+include /etc/monit.d/*
+
+set mail-format {
+  from: shiino.shunsuke@mountposition.co.jp
+  subject: {{ project_name }} monit alert -- \$EVENT at {{ host_name }}
+}
+set mailserver {{ mail_server }}
+
+{% for alert in alert_for %}
+set alert {{ alert }}
+{% endfor %}

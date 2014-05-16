@@ -1,0 +1,7 @@
+# ロールのデフォルト設定
+---
+host_name: localhost
+mail_server: localhost
+project_name: project_name
+alert_for:
+  - test@example.com

@@ -1,0 +1,6 @@
+# プロジェクト毎の設定
+---
+project_name: test_project
+alert_for:
+  - shunsuke.shiino@gmail.com
+  - shunsuke.shiino+alert@gmail.com

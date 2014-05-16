@@ -1,0 +1,28 @@
+- name: be sure common packages are installed
+  yum: name={{item}} enablerepo=epel state=installed
+  with_items:
+    - vim-enhanced
+    - curl
+    - curl-devel
+    - bzip2
+    - make
+    - sysstat
+    - mlocate
+    - readline-devel
+    - zlib-devel
+    - openssl-devel
+    - libxml2-devel
+    - libxslt-devel
+    - gcc
+    - gcc-c++
+    - iotop
+    - ruby
+    - gdb
+    - lsof
+    - strace
+    - perl-Cache-Cache
+    - libtool
+    - monit
+    - munin-node
+    - ntp
+  tags: common_packages
