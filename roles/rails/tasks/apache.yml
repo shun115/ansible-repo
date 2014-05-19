@@ -11,9 +11,7 @@
   tags: apache
 
 - name: configure log rotate
-  lineinfile: dest=/etc/logrotate.d/httpd owner=root group=root mode=0644 backup=yes {{item}}
-  with_items:
-    - regexp='missingok' line='missingok\n    daily\n    dateext'
+  shell: sed -i 's/missingok/missingok\n    daily\n    dateext/' /etc/logrotate.d/httpd
   tags: apache
 
 - name: configure monit
