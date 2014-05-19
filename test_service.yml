@@ -1,0 +1,11 @@
+# サービスのサーバ一覧yaml。サーバごとのロールを指定
+---
+- hosts: all
+  sudo: yes
+  roles:
+    - common
+
+- hosts: web
+  sudo: yes
+  roles:
+    - rails
