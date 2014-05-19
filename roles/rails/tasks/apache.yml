@@ -7,7 +7,7 @@
   tags: apache
 
 - name: configure apache server-status
-  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf owner=root group=root mode=0644 backup=yes
+  lineinfile: src=httpd.conf dest=/etc/httpd/conf/httpd.conf owner=root group=root mode=0644 backup=yes insertafter=EOF
   tags: apache
 
 - name: configure log rotate
