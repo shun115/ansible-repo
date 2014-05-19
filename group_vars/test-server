@@ -4,3 +4,5 @@ project_name: test_project
 alert_for:
   - shunsuke.shiino@gmail.com
   - shunsuke.shiino+alert@gmail.com
+ruby_version: 2.1.1
+passenger_version: 4.0.41

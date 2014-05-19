@@ -1,0 +1,12 @@
+---
+- name: be sure rvm are installed
+  shell: curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer > /tmp/rvm-installer && chmod 755 /tmp/rvm-installer && /tmp/rvm-installer --version latest
+  tags: ruby
+
+- name: be sure ruby are installed
+  shell: /usr/local/rvm/bin/rvm get stable && /usr/local/rvm/bin/rvm install {{ ruby_version }}
+  tags: ruby
+
+- name: be sure bundler gem are installed
+  shell: /usr/local/rvm/bin/rvm {{ ruby_version }} do gem install bundler
+  tags: ruby

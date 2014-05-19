@@ -3,3 +3,10 @@
 host_name: test_host
 mail_server: localhost
 hdd_device: /dev/vda1
+passenger_max_pool_size: 40
+passenger_min_instances: 10
+rails_apps:
+  - name: service
+    rails_env: staging
+  - name: admin
+    rails_env: development

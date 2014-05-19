@@ -1,0 +1,21 @@
+- name: be sure apache httpd are installed
+  yum: name={{item}} enablerepo=epel state=installed
+  with_items:
+    - httpd
+    - httpd-devel
+    - mod-ssl
+  tags: apache
+
+- name: configure apache server-status
+  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf owner=root group=root mode=0644 backup=yes
+  tags: apache
+
+- name: configure log rotate
+  lineinfile: dest=/etc/logrotate.d/httpd owner=root group=root mode=0644 backup=yes {{item}}
+  with_items:
+    - regexp='missingok' line='missingok\n    daily\n    dateext'
+  tags: apache
+
+- name: configure monit
+  copy: src=httpd.monit.conf dest=/etc/monit.d/httpd.conf owner=root group=root mode=0744
+  tags: apache

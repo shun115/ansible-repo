@@ -1,0 +1,8 @@
+---
+- name: be sure passenger are installed
+  shell: /usr/local/rvm/bin/rvm {{ ruby_version }} do gem install passenger -v {{ passenger_version }} --no-ri --no-rdoc && /usr/local/rvm/bin/rvm {{ ruby_version }} do passenger-install-apache2-module -a
+  tags: passenger
+
+- name: be sure request-log-analyzer gem are installed
+  shell: /usr/local/rvm/bin/rvm {{ ruby_version }} do gem install request-log-analyzer --no-ri --no-rdoc
+  tags: passenger
